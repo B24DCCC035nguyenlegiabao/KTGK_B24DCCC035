@@ -7,27 +7,42 @@ export default function PostList() {
     {
       id: 1,
       title: "Lập trình React cơ bản",
-      author: "Ngô Thành Đạt",
+      author: "Nguyễn Lê Gia Bảo",
       thumbnail: "https://picsum.photos/400/200?random=1",
       content: "Bài viết giới thiệu về React và cách hoạt động...",
-      category: "Công nghệ",
-      date: "2025-10-23",
+      category: "Công nghệ thông tin ",
+      date: "2025-15-23",
     },
     {
       id: 2,
-      title: "Du lịch Đà Nẵng Mùa Thu",
-      author: "Trần lan Anh",
+      title: "Du lịch Hà Nội Mùa Thu",
+      author: "Đào Gia Huy ",
       thumbnail: "https://picsum.photos/400/200?random=2",
-      content: "Một chuyến đi tuyệt vời đến Đà Nẵng..",
+      content: "Một chuyến đi tuyệt vời đến Hà Nội ..",
       category: "Du lịch",
-      date: "2025-10-21",
+      date: "2023-5-11",
+    },
+    {
+      id: 3,
+      title: "Thiên Dường ẩm thực ",
+      author: "Đào mạnh dũng ",
+      thumbnail: "https://picsum.photos/400/200?random=4",
+      content: "Thieen dường của đồ ăn  ..",
+      category: "ẩm thực",
+      date: "2023-7-4",
     },
   ]);
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ padding: "30px" }}>
       <h2>Danh sách bài viết ({posts.length})</h2>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "15px" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "20px",
+        }}
+      >
         {posts.map((p) => (
           <PostCard key={p.id} post={p} />
         ))}

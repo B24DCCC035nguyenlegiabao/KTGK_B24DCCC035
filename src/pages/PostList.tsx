@@ -1,50 +1,37 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Post } from "../types/Post";
+import type { Post } from "../types/Post";
 import PostCard from "../components/PostCard";
 
-interface PostListProps {
-  posts: Post[];
-  setPosts: React.Dispatch<React.SetStateAction<Post[]>>;
-}
-
-const PostList = ({ posts, setPosts }: PostListProps) => {
-  const [filter, setFilter] = useState("");
-
-  const handleDelete = (id: string) => {
-    if (window.confirm("Bạn có chắc muốn xóa bài viết này?")) {
-      setPosts(posts.filter((post) => post.id !== id));
-    }
-  };
-
-  const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(filter.toLowerCase())
-  );
+export default function PostList() {
+  const [posts] = useState<Post[]>([
+    {
+      id: 1,
+      title: "Lập trình React cơ bản",
+      author: "Ngô Thành Đạt",
+      thumbnail: "https://picsum.photos/400/200?random=1",
+      content: "Bài viết giới thiệu về React và cách hoạt động...",
+      category: "Công nghệ",
+      date: "2025-10-23",
+    },
+    {
+      id: 2,
+      title: "Du lịch Đà Nẵng Mùa Thu",
+      author: "Trần lan Anh",
+      thumbnail: "https://picsum.photos/400/200?random=2",
+      content: "Một chuyến đi tuyệt vời đến Đà Nẵng..",
+      category: "Du lịch",
+      date: "2025-10-21",
+    },
+  ]);
 
   return (
-    <div className="post-list-container">
-      <div className="post-list-header">
-        <h1>Danh sách bài viết ({filteredPosts.length})</h1>
-        <div className="controls">
-          <input
-            type="text"
-            placeholder="Tìm theo tiêu đề..."
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-            className="filter-input"
-          />
-          <Link to="/create" className="btn btn-primary">
-            Viết bài mới
-          </Link>
-        </div>
-      </div>
-      <div className="post-grid">
-        {filteredPosts.map((post) => (
-          <PostCard key={post.id} post={post} onDelete={handleDelete} />
+    <div style={{ padding: "20px" }}>
+      <h2>Danh sách bài viết ({posts.length})</h2>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "15px" }}>
+        {posts.map((p) => (
+          <PostCard key={p.id} post={p} />
         ))}
       </div>
     </div>
   );
-};
-
-export default PostList;
+}

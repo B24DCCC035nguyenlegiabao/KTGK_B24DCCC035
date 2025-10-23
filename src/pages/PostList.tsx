@@ -31,6 +31,33 @@ export default function PostList() {
       category: "ẩm thực",
       date: "2023-7-4",
     },
+    {
+      id: 4,
+      title: "Công viên nước ",
+      author: "Đào thị Nở ",
+      thumbnail: "https://picsum.photos/400/200?random=5",
+      content: "Đẹp như mơ  ..",
+      category: "Vui chơi",
+      date: "2023-7-4",
+    },
+    {
+      id: 5,
+      title: "Công viên du lịch ",
+      author: "Lê anh nuôi ",
+      thumbnail: "https://picsum.photos/400/200?random=6",
+      content: "Chơi thỏa thích luôn nè",
+      category: "Vui chơi",
+      date: "2025-4-24",
+    },
+    {
+      id: 6,
+      title: "Ngôi nhà tình thương ",
+      author: "Lê Thị màu ",
+      thumbnail: "https://picsum.photos/400/200?random=7",
+      content: "Chan Hòa tình thương",
+      category: "Tình cảm",
+      date: "2023-6-12",
+    },
   ]);
 
   return (

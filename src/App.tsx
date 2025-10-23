@@ -4,7 +4,6 @@ import PostList from "./pages/PostList";
 import PostDetail from "./pages/PostDetail";
 import PostForm from "./components/PostForm";
 import EditPost from "./pages/EditPost";
-
 function App() {
   return (
     <BrowserRouter>

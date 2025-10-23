@@ -1,9 +1,9 @@
 export interface Post {
-  id: string;
+  id: number;
   title: string;
   author: string;
+  thumbnail: string;
   content: string;
-  thumbnailUrl: string;
-  category: "Công nghệ" | "Du lịch" | "Ẩm thực" | "Đời sống" | "Khác";
-  publishedDate: string; // Định dạng YYYY-MM-DD
+  category: string;
+  date: string;
 }

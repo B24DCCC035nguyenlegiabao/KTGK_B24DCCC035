@@ -1,32 +1,23 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+export default function Navbar() {
+  const navigate = useNavigate();
+
   return (
-    <nav className="navbar">
-      <Link to="/" className="navbar-logo">
-        My Blog
-      </Link>
-      <div className="navbar-links">
+    <nav style={{ display: "flex", justifyContent: "space-between", padding: "10px 30px", background: "#222", color: "#fff" }}>
+      <h2 style={{ cursor: "pointer" }} onClick={() => navigate("/")}> Blog Management</h2>
+      <div>
         <NavLink
           to="/"
-          end // 'end' prop để đảm bảo nó chỉ active khi ở chính xác trang chủ
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
+          style={({ isActive }) => ({
+            marginRight: "20px",
+            color: isActive ? "Green" : "white",
+          })}
         >
           Trang chủ
         </NavLink>
-        <NavLink
-          to="/create"
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
-        >
-          Viết bài mới
-        </NavLink>
+        <button onClick={() => navigate("/create")}> Viết bài</button>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
